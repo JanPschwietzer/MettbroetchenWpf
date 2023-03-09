@@ -44,12 +44,6 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "dependencies": {
-            "Framework.WPF.MVVM": {
-              "target": "Package",
-              "version": "[0.1.7162.25488-alpha, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

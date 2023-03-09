@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:MettbrötchenWpf"
         mc:Ignorable="d"
         Title="Admin" Height="200" Width="200">
+    
+    
     <Grid VerticalAlignment="Center">
         <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
             <RowDefinition Height="32" />
             <RowDefinition Height="32" />
             <RowDefinition Height="32" />
@@ -19,21 +22,24 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
     
-        <!-- Row 0 -->
-        <Label Grid.Row="0" VerticalAlignment="Center" Content="Brötchenkosten" />
-        <TextBox Grid.Row="0" VerticalAlignment="Center" Grid.Column="1" />
-        <Label Grid.Row="0" VerticalAlignment="Center" Grid.Column="2" Content="€" />
         
+        <!-- Row 0 -->
+        <DatePicker Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center"></DatePicker>
         <!-- Row 1 -->
-        <Label Grid.Column="0" VerticalAlignment="Center" Grid.Row="1" Content="Mettkosten" />
+        <Label Grid.Row="1" VerticalAlignment="Center" Content="Brötchenkosten" />
         <TextBox Grid.Row="1" VerticalAlignment="Center" Grid.Column="1" />
-        <Label Grid.Column="2" VerticalAlignment="Center" Grid.Row="1" Content="€" />
+        <Label Grid.Row="1" VerticalAlignment="Center" Grid.Column="2" Content="€" />
         
         <!-- Row 2 -->
-        <Label Grid.Column="0" VerticalAlignment="Center" Grid.Row="2" Content="Paypal Email:" />
-        <TextBox Grid.Row="2" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" />
+        <Label Grid.Column="0" VerticalAlignment="Center" Grid.Row="2" Content="Mettkosten" />
+        <TextBox Grid.Row="2" VerticalAlignment="Center" Grid.Column="1" />
+        <Label Grid.Column="2" VerticalAlignment="Center" Grid.Row="2" Content="€" />
         
         <!-- Row 3 -->
-        <Button Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Center" Content="Senden" />
+        <Label Grid.Column="0" VerticalAlignment="Center" Grid.Row="3" Content="Paypal Email:" />
+        <TextBox Grid.Row="3" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" />
+        
+        <!-- Row 4 -->
+        <Button Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Center" Content="Senden" />
     </Grid>
 </Window>

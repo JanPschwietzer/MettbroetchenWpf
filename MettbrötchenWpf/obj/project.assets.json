@@ -1,160 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {
-      "Framework.Base/0.1.7162.25488-alpha": {
-        "type": "package",
-        "dependencies": {
-          "Framework.Monitoring.Logging.Contracts": "0.1.7162.25488-alpha"
-        },
-        "compile": {
-          "lib/net461/Framework.Base.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net461/Framework.Base.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Framework.Extensions/0.1.7162.25488-alpha": {
-        "type": "package",
-        "compile": {
-          "lib/net461/Framework.Extensions.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net461/Framework.Extensions.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Framework.Monitoring.Logging.Contracts/0.1.7162.25488-alpha": {
-        "type": "package",
-        "compile": {
-          "lib/net461/Framework.Monitoring.Logging.Contracts.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net461/Framework.Monitoring.Logging.Contracts.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Framework.WPF.MVVM/0.1.7162.25488-alpha": {
-        "type": "package",
-        "dependencies": {
-          "Framework.Base": "0.1.7162.25488-alpha",
-          "Framework.Extensions": "0.1.7162.25488-alpha",
-          "Framework.Monitoring.Logging.Contracts": "0.1.7162.25488-alpha",
-          "System.Collections.Immutable": "1.5.0"
-        },
-        "compile": {
-          "lib/net461/Framework.WPF.MVVM.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net461/Framework.WPF.MVVM.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Collections.Immutable/1.5.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
-        }
-      }
-    }
+    "net5.0-windows7.0": {}
   },
-  "libraries": {
-    "Framework.Base/0.1.7162.25488-alpha": {
-      "sha512": "cLCmZxmk72qo+GQu2v9Lnqmpf0wInHD0lFtflhDhRvOmmyWj/bWi3SleiS91Su/KrlxDmfJsYFT4qXzcTmanvg==",
-      "type": "package",
-      "path": "framework.base/0.1.7162.25488-alpha",
-      "files": [
-        ".nupkg.metadata",
-        "framework.base.0.1.7162.25488-alpha.nupkg.sha512",
-        "framework.base.nuspec",
-        "lib/net461/Framework.Base.dll",
-        "lib/net461/Framework.Base.xml"
-      ]
-    },
-    "Framework.Extensions/0.1.7162.25488-alpha": {
-      "sha512": "N6coYIP7RLPfC8Jal8Yh/mRCUCvvvQgWhPUEwMkfh7SUvn5hSCH1Zex+FXvqF7b3BXaMJN4cdLK/NxMgYmefPw==",
-      "type": "package",
-      "path": "framework.extensions/0.1.7162.25488-alpha",
-      "files": [
-        ".nupkg.metadata",
-        "framework.extensions.0.1.7162.25488-alpha.nupkg.sha512",
-        "framework.extensions.nuspec",
-        "lib/net461/Framework.Extensions.dll",
-        "lib/net461/Framework.Extensions.xml"
-      ]
-    },
-    "Framework.Monitoring.Logging.Contracts/0.1.7162.25488-alpha": {
-      "sha512": "khC+khP8b6MnM+b/TOWhQlYqhZuv2SKZUMcfFNMySz5rOOJw8JJX7XebFNS4S+qtnpfGrd5971drmxrFMmi0HQ==",
-      "type": "package",
-      "path": "framework.monitoring.logging.contracts/0.1.7162.25488-alpha",
-      "files": [
-        ".nupkg.metadata",
-        "framework.monitoring.logging.contracts.0.1.7162.25488-alpha.nupkg.sha512",
-        "framework.monitoring.logging.contracts.nuspec",
-        "lib/net461/Framework.Monitoring.Logging.Contracts.dll",
-        "lib/net461/Framework.Monitoring.Logging.Contracts.xml"
-      ]
-    },
-    "Framework.WPF.MVVM/0.1.7162.25488-alpha": {
-      "sha512": "cZg2lQM8hS0UcazoGFpYA/mADhhV7qN1nbkkDXxvfnP0ZhrXZgC+Ed/ByhqorJCnhhAaW6dl9rk5Jtmyi8qc3g==",
-      "type": "package",
-      "path": "framework.wpf.mvvm/0.1.7162.25488-alpha",
-      "files": [
-        ".nupkg.metadata",
-        "framework.wpf.mvvm.0.1.7162.25488-alpha.nupkg.sha512",
-        "framework.wpf.mvvm.nuspec",
-        "lib/net461/Framework.WPF.MVVM.dll",
-        "lib/net461/Framework.WPF.MVVM.xml"
-      ]
-    },
-    "System.Collections.Immutable/1.5.0": {
-      "sha512": "EXKiDFsChZW0RjrZ4FYHu9aW6+P4MCgEDCklsVseRfhoO0F+dXeMSsMRAlVXIo06kGJ/zv+2w1a2uc2+kxxSaQ==",
-      "type": "package",
-      "path": "system.collections.immutable/1.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netstandard1.0/System.Collections.Immutable.dll",
-        "lib/netstandard1.0/System.Collections.Immutable.xml",
-        "lib/netstandard1.3/System.Collections.Immutable.dll",
-        "lib/netstandard1.3/System.Collections.Immutable.xml",
-        "lib/netstandard2.0/System.Collections.Immutable.dll",
-        "lib/netstandard2.0/System.Collections.Immutable.xml",
-        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.xml",
-        "system.collections.immutable.1.5.0.nupkg.sha512",
-        "system.collections.immutable.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": [
-      "Framework.WPF.MVVM >= 0.1.7162.25488-alpha"
-    ]
+    "net5.0-windows7.0": []
   },
   "packageFolders": {
     "C:\\Users\\jschwietzer\\.nuget\\packages\\": {},
@@ -200,12 +51,6 @@
     "frameworks": {
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
-        "dependencies": {
-          "Framework.WPF.MVVM": {
-            "target": "Package",
-            "version": "[0.1.7162.25488-alpha, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -234,46 +79,6 @@
       "level": "Warning",
       "warningLevel": 1,
       "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.genese.local'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.Base 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.Base",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.Extensions 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.Extensions",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.Monitoring.Logging.Contracts 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.Monitoring.Logging.Contracts",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.WPF.MVVM 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.WPF.MVVM",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
     }
   ]
 }

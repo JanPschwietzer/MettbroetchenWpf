@@ -1,61 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "/xLnZmwVG2liK6RJuNCymuwovc65cl0Oy02rj7FMzRSSGuI5Wh+JYWLdmOUruMdCDXB2Sx1ILKIziZe0Sv/BgQ==",
+  "dgSpecHash": "OwnGBMjCvkaLtqz1pPTu0kif+R4L26eCIpoik5TdrBIsdrUwhmiVxX7YHXQrrlAP18j+3q6IeI8yT6cmSjHYZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\jschwietzer\\RiderProjects\\MettbrötchenWpf\\MettbrötchenWpf\\MettbrötchenWpf.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\jschwietzer\\.nuget\\packages\\framework.base\\0.1.7162.25488-alpha\\framework.base.0.1.7162.25488-alpha.nupkg.sha512",
-    "C:\\Users\\jschwietzer\\.nuget\\packages\\framework.extensions\\0.1.7162.25488-alpha\\framework.extensions.0.1.7162.25488-alpha.nupkg.sha512",
-    "C:\\Users\\jschwietzer\\.nuget\\packages\\framework.monitoring.logging.contracts\\0.1.7162.25488-alpha\\framework.monitoring.logging.contracts.0.1.7162.25488-alpha.nupkg.sha512",
-    "C:\\Users\\jschwietzer\\.nuget\\packages\\framework.wpf.mvvm\\0.1.7162.25488-alpha\\framework.wpf.mvvm.0.1.7162.25488-alpha.nupkg.sha512",
-    "C:\\Users\\jschwietzer\\.nuget\\packages\\system.collections.immutable\\1.5.0\\system.collections.immutable.1.5.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": [
     {
       "code": "NU1803",
       "level": "Warning",
       "warningLevel": 1,
       "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.genese.local'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.Base 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.Base",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.Extensions 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.Extensions",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.Monitoring.Logging.Contracts 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.Monitoring.Logging.Contracts",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Framework.WPF.MVVM 0.1.7162.25488-alpha' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Framework.WPF.MVVM",
-      "targetGraphs": [
-        "net5.0-windows7.0"
-      ]
     }
   ]
 }

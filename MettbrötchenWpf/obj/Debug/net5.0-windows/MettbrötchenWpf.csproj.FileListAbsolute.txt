@@ -5,10 +5,6 @@ C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\n
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\MettbrötchenWpf.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\ref\MettbrötchenWpf.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\MettbrötchenWpf.pdb
-C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\Framework.Base.dll
-C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\Framework.Extensions.dll
-C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\Framework.Monitoring.Logging.Contracts.dll
-C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\Framework.WPF.MVVM.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.csproj.AssemblyReference.cache
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\App.g.cs
@@ -20,7 +16,6 @@ C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\n
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.AssemblyInfoInputs.cache
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.AssemblyInfo.cs
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.csproj.CoreCompileInputs.cache
-C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.csproj.CopyComplete
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\ref\MettbrötchenWpf.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.pdb
