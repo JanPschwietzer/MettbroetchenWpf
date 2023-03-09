@@ -10,12 +10,10 @@ C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\n
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\Framework.Monitoring.Logging.Contracts.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\bin\Debug\net5.0-windows\Framework.WPF.MVVM.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.csproj.AssemblyReference.cache
-C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\AdminPanel.g.cs
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf_MarkupCompile.cache
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf_MarkupCompile.lref
-C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\AdminPanel.baml
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MainWindow.baml
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.g.resources
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.GeneratedMSBuildEditorConfig.editorconfig
@@ -27,3 +25,5 @@ C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\n
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\ref\MettbrötchenWpf.dll
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.pdb
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\MettbrötchenWpf.genruntimeconfig.cache
+C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\AdminPanel\AdminPanel.g.cs
+C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\obj\Debug\net5.0-windows\AdminPanel\AdminPanel.baml

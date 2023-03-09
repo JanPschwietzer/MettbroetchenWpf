@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\jschwietzer\RiderProjects\MettbrötchenWpf\MettbrötchenWpf\App.xaml
-2-533389694
+2-1787640588
 
-5-1881731817
+71342878550
 1972133063959
-AdminPanel.xaml;MainWindow.xaml;
+AdminPanel\AdminPanel.xaml;MainWindow.xaml;
 
 False
 
