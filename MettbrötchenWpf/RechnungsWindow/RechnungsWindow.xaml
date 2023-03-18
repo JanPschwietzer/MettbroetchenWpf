@@ -1,0 +1,80 @@
+﻿<Window x:Class="MettbrötchenWpf.RechnungsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:MettbrötchenWpf"
+        mc:Ignorable="d"
+        Title="Rechnungseditor"
+        Height="400"
+        Width="400"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterOwner">
+    <Window.DataContext>
+        <local:RechnungsWindowViewModel />
+    </Window.DataContext>
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,400,400" RadiusX="15" RadiusY="15"/>
+
+    </Window.Clip>
+    <StackPanel Background="#D2D8EF" Cursor="Arrow">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="350"/>
+            </Grid.RowDefinitions>
+            <Grid Background="#B06D1C" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <Label Cursor="SizeAll" Foreground="#FCFCFC" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Mettbrötchen: Rechnungseditor" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Padding="6" MouseDown="Button_MouseDown" Width="289" Height="36" Margin="10,0,0,0"/>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="13" Margin="0 0 5 0 " HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="CloseButtonClick">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FCFCFC" Width="25" Height="25" />
+                </Button>
+            </Grid>
+            <StackPanel Grid.Row="1" Margin="25 0 " VerticalAlignment="Center">
+                <Label Content="{Binding BestellungenAmTag}" />
+                <DockPanel Margin="0 20 0 0">
+                    <Label VerticalAlignment="Center" Content="Name:" />
+                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding HostName}" Width="178"  TextAlignment="Center"/>
+                </DockPanel>
+                <DockPanel Margin="0 20 0 0">
+                    <Label Content="Bestelldatum:" />
+                    <DatePicker VerticalAlignment="Center" HorizontalAlignment="Right" DisplayDateEnd="{x:Static sys:DateTime.Now}" HorizontalContentAlignment="Center" SelectedDate="{Binding Rechnungsdatum}" Width="178" />
+                </DockPanel>
+                <DockPanel Margin="0 20 0 0">
+                    <Label VerticalAlignment="Center" Content="Paypal:" />
+                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding PaypalEmail}" Width="178"  TextAlignment="Center"/>
+                </DockPanel>
+                <DockPanel Margin="0 20 0 0">
+                    <Label VerticalAlignment="Center" Content="Brötchenpreis (gesamt):" />
+                    <DockPanel HorizontalAlignment="Right">
+                        <TextBox VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding BroetchenPreis}" Width="50"  TextAlignment="Center"/>
+                        <Label VerticalAlignment="Center" Content="€" Margin="5 0 0 0" />
+                    </DockPanel>
+                </DockPanel>
+                <DockPanel Margin="0 20 0 0">
+                    <Label VerticalAlignment="Center" Content="Mettpreis (gesamt):" />
+                    <DockPanel HorizontalAlignment="Right">
+                        <TextBox VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding MettPreis}" Width="50"  TextAlignment="Center"/>
+                        <Label VerticalAlignment="Center" Content="€" Margin="5 0 0 0" />
+                    </DockPanel>
+                </DockPanel>
+                <DockPanel Margin="0 20 0 0">
+                    <Button VerticalAlignment="Center" Content="Senden" Command="{Binding SendEmailsCommand}" Foreground="Black" Background="#F2D398" BorderBrush="#D78521" />
+                    <Label VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding StatusText}"/>
+                </DockPanel>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

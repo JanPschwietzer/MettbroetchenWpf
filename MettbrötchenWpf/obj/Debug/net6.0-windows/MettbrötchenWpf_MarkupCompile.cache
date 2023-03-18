@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\schwi\source\repos\JanPschwietzer\MettbroetchenWpf\MettbrötchenWpf\App.xaml
-2-1175641399
+3243497581
 
-12-395786637
-203-1574474872
-AdminPanel\AdminPanel.xaml;MainWindow\MainWindow.xaml;
+15-1562893371
+207-466843963
+EinladungsWindow\EinladungsWindow.xaml;MainWindow\MainWindow.xaml;RechnungsWindow\RechnungsWindow.xaml;
 
-False
+True
 
