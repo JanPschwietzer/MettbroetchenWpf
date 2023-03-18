@@ -89,11 +89,11 @@
                         </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="1" Margin=" 0 25 15 0">
                             <TextBlock Text="Einkaufsliste:" TextDecorations="Underline" FontSize="20" Margin="5 5 0 0 " />
-                            <DockPanel>
+                            <DockPanel Margin="0 15 0 0">
                                 <Label Content="Brötchen:" />
                                 <DockPanel HorizontalAlignment="Right">
                                     <Label Content="{Binding AnzahlBroetchen}" />
-                                    <Label Content=" x" />
+                                    <Label Content=" x" Margin="1 0 0 0" />
                                 </DockPanel>
                             </DockPanel>
                             <DockPanel>
@@ -107,14 +107,14 @@
                                 <Label Content="150:" Margin="15 0 0 0" />
                                 <DockPanel HorizontalAlignment="Right">
                                     <Label Content="{Binding Anzahl150g}" />
-                                    <Label Content=" x" />
+                                    <Label Content=" x" Margin="1 0 0 0" />
                                 </DockPanel>
                                 </DockPanel>
                             <DockPanel>
                                 <Label Content="200:" Margin="15 0 0 5"/>
                                 <DockPanel HorizontalAlignment="Right">
                                     <Label Content="{Binding Anzahl200g}" />
-                                    <Label Content=" x" />
+                                    <Label Content=" x" Margin="1 0 0 0" />
                                 </DockPanel>
                             </DockPanel>
                         </StackPanel>

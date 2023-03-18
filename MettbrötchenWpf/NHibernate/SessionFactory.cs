@@ -24,16 +24,4 @@ public static class SessionFactory
             .ExposeConfiguration(cfg => { new SchemaUpdate(cfg).Execute(false, true); })
             .BuildSessionFactory();
     }
-    public static ISessionFactory CreateSessionForRewriting()
-    {
-        return Fluently.Configure().Database(
-                MsSqlConfiguration.MsSql2012.ConnectionString(c => c
-                    .Server(Server)
-                    .Database(Database)
-                    .Username(Username)
-                    .Password(Password)))
-            .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Einladung>())
-            .ExposeConfiguration(cfg => { new SchemaExport(cfg).Create(false, true); })
-            .BuildSessionFactory();
-    }
 }
