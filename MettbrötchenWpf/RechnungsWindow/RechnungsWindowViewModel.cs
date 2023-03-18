@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net.Mail;
 using System.Windows;
-using System.Xml.Linq;
 using MettbrötchenWpf.MVVM;
 using MettbrötchenWpf.NHibernate;
 using ICommand = System.Windows.Input.ICommand;
@@ -13,7 +12,7 @@ namespace MettbrötchenWpf
 {
     public class RechnungsWindowViewModel : INotifyPropertyChangedBase
     {
-        //Properties
+        #region Properties
         private string _hostName;
         private string _paypalEmail;
         private double _broetchenPreis;
@@ -25,10 +24,32 @@ namespace MettbrötchenWpf
         private RechnungsWindowModel _model;
         private int _anzahlBroetchen;
         private int _grammMett;
+        private IList<Bestellung> _bestellungenList;
+        private Dictionary<int, int> _mettDictionary;
         public ICommand SendEmailsCommand { get; set; }
+        #endregion
 
-
-        //Getter & Setter
+        #region Getter & Setter
+        public int AnzahlBroetchen
+        {
+            get => _anzahlBroetchen;
+            set => Set(ref _anzahlBroetchen, value);
+        }
+        public int GrammMett
+        {
+            get => _grammMett;
+            set => Set(ref _grammMett, value);
+        }
+        public Dictionary<int, int> MettDictionary
+        {
+            get => _mettDictionary;
+            set => Set(ref _mettDictionary, value);
+        }
+        public IList<Bestellung> BestellungenList
+        {
+            get => _bestellungenList;
+            set => Set(ref _bestellungenList, value);
+        }
         public string HostName
         {
             get => _hostName;
@@ -54,6 +75,7 @@ namespace MettbrötchenWpf
             set
             {
                 _rechnungsdatum= value;
+                BestellungenList = _model.GetBestellungen(value);
                 Bestellungen = _model.GetNummerBestellungen(value);
             }
         }
@@ -68,13 +90,13 @@ namespace MettbrötchenWpf
 
         public string BroetchenPreis
         {
-            get => _broetchenPreis.ToString();
+            get => _broetchenPreis.ToString(CultureInfo.CurrentCulture);
             set => Set(ref _broetchenPreis, value.Replace('.', ',') == "" ? 0 : double.Parse(value.Replace('.', ',')));
         }
 
         public string MettPreis
         {
-            get => _mettPreis.ToString();
+            get => _mettPreis.ToString(CultureInfo.CurrentCulture);
             set => Set(ref _mettPreis, value.Replace('.', ',') == "" ? 0 : double.Parse(value.Replace('.', ',')));
         }
         
@@ -83,27 +105,35 @@ namespace MettbrötchenWpf
             get => _statusText;
             private set => Set(ref _statusText, value);
         }
+        
+        #endregion
 
-        //Constructor
+        #region Constructor
         public RechnungsWindowViewModel()
         {
             _model = new RechnungsWindowModel();
-            PaypalEmail = "tstraube@gmx.de";
+            
+            PaypalEmail = "[name]@gmx.de";
             BroetchenPreis = "0,00";
             MettPreis = "0,00";
             Rechnungsdatum = DateTime.Today;
             StatusText = "Wartet...";
             Bestellungen = _model.GetNummerBestellungen(Rechnungsdatum);
-            HostName = "Tobias Straube";
-
+            HostName = "Ihr Mettbrötchen-Team";
             SendEmailsCommand = new RelayCommand(o => SendEmailsClick());
+            MettDictionary = new();
+            
+            GetAnzahlBroetchenMett();
+            
         }
-
+        #endregion
+        
+        #region Methods
         private void SendEmailsClick()
         {
-            var bestellungen = _model.GetBestellungen(Rechnungsdatum);
-            
-            if (SendEmails(PrepareEmails(bestellungen)))
+            if (!AnfrageSendenMoeglich()) return;
+
+            if (SendEmails(PrepareEmails()))
             {
                 MessageBox.Show("Emails wurden erfolgreich versendet!", "Erfolg", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -111,11 +141,39 @@ namespace MettbrötchenWpf
             {
                 MessageBox.Show("Emails konnten nicht versendet werden!", "Fehler!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
         }
-        
+
+        private bool AnfrageSendenMoeglich()
+        {
+            if (PaypalEmail == "" || Helpers.EmailisValid(PaypalEmail) == false)
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Email-Adresse ein!", "Fehler!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else if (BroetchenPreis == "" || MettPreis == "")
+            {
+                MessageBox.Show("Bitte geben Sie einen gültigen Preis ein!", "Fehler!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else if (Bestellungen == 0)
+            {
+                MessageBox.Show("Es gibt keine Bestellungen für diesen Tag!", "Fehler!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else if (HostName == "")
+            {
+                MessageBox.Show("Bitte geben Sie einen Namen ein!", "Fehler!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private bool SendEmails(IList<MailMessage> emails)
         {
+            StatusText = "Emails werden versendet...";
             foreach (var email in emails)
             {
 
@@ -129,20 +187,23 @@ namespace MettbrötchenWpf
                 }
                 catch (Exception e)
                 {
-                    System.Diagnostics.Process.Start(new ProcessStartInfo($"mailto:{email.To}&subject={email.Subject}&body={email.Body}") { UseShellExecute = true });
+                    MessageBox.Show(e.Message, "Fehler!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Process.Start(new ProcessStartInfo($"mailto:{email.To}&subject={email.Subject}&body={email.Body}") { UseShellExecute = true });
+                    StatusText = "Wartet...";
                     return false;
                 }
             }
+            StatusText = "Wartet...";
             return true;
         }
 
-        private List<MailMessage> PrepareEmails(IList<Query> bestellungen)
+        private List<MailMessage> PrepareEmails()
         {
-            GetAnzahlBroetchenMett(bestellungen);
+            GetAnzahlBroetchenMett();
             
             List<MailMessage> messages = new List<MailMessage>();
 
-            foreach (var bestellung in bestellungen)
+            foreach (var bestellung in BestellungenList)
             {
                 if (bestellung.Today.ToShortDateString() != Rechnungsdatum.ToShortDateString()) continue;
 
@@ -152,11 +213,15 @@ namespace MettbrötchenWpf
                 betrag += bestellung.Broetchen * (_broetchenPreis / _anzahlBroetchen);
                 betrag += bestellung.Mett * (_mettPreis / _grammMett);
 
+                string format = "0.00";
+
                 message.Subject = "Bezahlung Mettbrötchen vom " + Rechnungsdatum.ToShortDateString();
-                message.Body = "Hallo,\n\n" +
-                               $"bitte überweise den Betrag von {betrag.ToString("#,##")}€ auf folgendes Paypal Konto:\n" +
-                               $"{PaypalEmail}\n" +
-                               "Bitte nutze dafür die Freunde und Familie Option.\n" +
+                message.Body = "Hallo Lieber Mettbrötchenfreund,\n\n" +
+                               $"bitte überweise den Betrag von {betrag.ToString(format)}€ auf folgendes Paypal Konto:\n" +
+                               $"{PaypalEmail}\n\n" +
+                               "Kostenaufstellung: \n" +
+                               $"Brötchen: {bestellung.Broetchen} Stück à {(_broetchenPreis / _anzahlBroetchen).ToString(format)}€ = {(bestellung.Broetchen * (_broetchenPreis / _anzahlBroetchen)).ToString(format)}€\n" +
+                               $"Mett: {bestellung.Mett}g à {((_mettPreis / _grammMett) * 100).ToString(format)}€ = {(bestellung.Mett * (_mettPreis / _grammMett)).ToString(format)}€\n\n" +
                                "Mit freundlichen Grüßen\n" +
                                $"{HostName}\n";
                 message.From = new MailAddress("mettbroetchen@genese.de", "GMettbrötchen");
@@ -168,17 +233,27 @@ namespace MettbrötchenWpf
             return messages;
         }
 
-        private void GetAnzahlBroetchenMett(IList<Query> bestellungen)
+        private void GetAnzahlBroetchenMett()
         {
-            _anzahlBroetchen = 0;
-            _grammMett = 0;
-            
-            foreach (var bestellung in bestellungen)
+            AnzahlBroetchen = 0;
+            GrammMett = 0;
+
+            foreach (var bestellung in BestellungenList)
             {
                 if (bestellung.Today.ToShortDateString() != Rechnungsdatum.ToShortDateString()) continue;
-                _anzahlBroetchen += bestellung.Broetchen;
-                _grammMett += bestellung.Mett;
+                AnzahlBroetchen += bestellung.Broetchen;
+                GrammMett += bestellung.Mett;
+                if (MettDictionary.ContainsKey(bestellung.Mett))
+                {
+                    MettDictionary[bestellung.Mett]++;
+                }
+                else
+                {
+                    MettDictionary.Add(bestellung.Mett, 1);
+                }
+                
             }
         }
+        #endregion
     }
 }

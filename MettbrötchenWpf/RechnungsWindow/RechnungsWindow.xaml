@@ -8,8 +8,8 @@
         xmlns:local="clr-namespace:MettbrötchenWpf"
         mc:Ignorable="d"
         Title="Rechnungseditor"
-        Height="400"
-        Width="400"
+        Height="450"
+        Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
         AllowsTransparency="True"
@@ -18,17 +18,17 @@
     <Window.DataContext>
         <local:RechnungsWindowViewModel />
     </Window.DataContext>
-    <Window.Clip>
-        <RectangleGeometry Rect="0,0,400,400" RadiusX="15" RadiusY="15"/>
-
-    </Window.Clip>
-    <StackPanel Background="#D2D8EF" Cursor="Arrow">
+    <Border Background="Black"
+            BorderBrush="Black"
+            BorderThickness="0.5" 
+            Padding="1">
+        <StackPanel Background="#bfc0c0" Cursor="Arrow">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="350"/>
             </Grid.RowDefinitions>
-            <Grid Background="#B06D1C" Grid.ColumnSpan="3">
+            <Grid Background="#2d3142" Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -38,11 +38,16 @@
                 </Grid.ColumnDefinitions>
                 
                 <Label Cursor="SizeAll" Foreground="#FCFCFC" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Mettbrötchen: Rechnungseditor" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Padding="6" MouseDown="Button_MouseDown" Width="289" Height="36" Margin="10,0,0,0"/>
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="13" Margin="0 0 5 0 " HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="CloseButtonClick">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="4" Margin="0 0 5 0 " HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="CloseButtonClick">
                     <materialDesign:PackIcon Kind="Power" Foreground="#FCFCFC" Width="25" Height="25" />
                 </Button>
             </Grid>
-            <StackPanel Grid.Row="1" Margin="25 0 " VerticalAlignment="Center">
+            <Grid Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="25 0 " VerticalAlignment="Center">
                 <Label Content="{Binding BestellungenAmTag}" />
                 <DockPanel Margin="0 20 0 0">
                     <Label VerticalAlignment="Center" Content="Name:" />
@@ -71,10 +76,71 @@
                     </DockPanel>
                 </DockPanel>
                 <DockPanel Margin="0 20 0 0">
-                    <Button VerticalAlignment="Center" Content="Senden" Command="{Binding SendEmailsCommand}" Foreground="Black" Background="#F2D398" BorderBrush="#D78521" />
+                    <Button VerticalAlignment="Center" Content="Senden" Command="{Binding SendEmailsCommand}" Foreground="Black" Background="#ef8354" BorderBrush="#ef8354" />
                     <Label VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding StatusText}"/>
                 </DockPanel>
             </StackPanel>
+                <StackPanel Grid.Column="1">
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="1" Margin=" 0 25 15 0">
+                            <TextBlock Text="Einkaufsliste:" TextDecorations="Underline" FontSize="20" Margin="5 5 0 0 " />
+                            <DockPanel>
+                                <Label Content="Brötchen:" />
+                                <DockPanel HorizontalAlignment="Right">
+                                    <Label Content="{Binding AnzahlBroetchen}" />
+                                    <Label Content=" x" />
+                                </DockPanel>
+                            </DockPanel>
+                            <DockPanel>
+                                <Label Content="Mett (gesamt):" />
+                                <DockPanel HorizontalAlignment="Right">
+                                    <Label Content="{Binding GrammMett}" />
+                                    <Label Content=" g" />
+                                </DockPanel>
+                            </DockPanel>
+                            <DockPanel>
+                                <Label Content="150:" Margin="15 0 0 0" />
+                                <DockPanel HorizontalAlignment="Right">
+                                    <Label Content="{Binding MettDictionary[150]}" />
+                                    <Label Content=" x" />
+                                </DockPanel>
+                                </DockPanel>
+                            <DockPanel>
+                                <Label Content="200:" Margin="15 0 0 5"/>
+                                <DockPanel HorizontalAlignment="Right">
+                                    <Label Content="{Binding MettDictionary[200]}" />
+                                    <Label Content=" x" />
+                                </DockPanel>
+                            </DockPanel>
+                        </StackPanel>
+                        <!-- <StackPanel Grid.Column="1"> -->
+                        <!--     <Label Content="Einzelnachweis:" Margin="0 25 0 0"/> -->
+                        <!--     <ListBox ItemsSource="{Binding BestellungenList}" Margin="25 20 0 0" MaxHeight="300"> -->
+                        <!--         <ListBox.ItemTemplate > -->
+                        <!--             <DataTemplate> -->
+                        <!--                 <StackPanel> -->
+                        <!--                     <DockPanel> -->
+                        <!--                         <DockPanel> -->
+                        <!--                             <Label Content="{Binding Path=Broetchen}" /> -->
+                        <!--                         </DockPanel> -->
+                        <!--                         <DockPanel HorizontalAlignment="Right"> -->
+                        <!--                             <Label Content="{Binding Path=Mett}" /> -->
+                        <!--                         </DockPanel> -->
+                        <!--                     </DockPanel> -->
+                        <!--                 </StackPanel> -->
+                        <!--             </DataTemplate> -->
+                        <!--         </ListBox.ItemTemplate> -->
+                        <!--     </ListBox> -->
+                        <!-- </StackPanel> -->
+                    </Grid>
+                </StackPanel>
+        </Grid>
         </Grid>
     </StackPanel>
+    </Border>
 </Window>

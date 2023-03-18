@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using MettbrötchenWpf.NHibernate;
 using NHibernate;
-using NHibernate.Criterion;
 
 namespace MettbrötchenWpf;
 
@@ -17,8 +15,8 @@ public class RechnungsWindowModel
             ISessionFactory sessionFactory = SessionFactory.CreateSessionFactory();
             using (var session = sessionFactory.OpenSession())
             {
-                var trans = session.CreateCriteria<Query>()
-                    .List<Query>();
+                var trans = session.CreateCriteria<Bestellung>()
+                    .List<Bestellung>();
 
                 foreach (var entry in trans)
                 {
@@ -38,17 +36,26 @@ public class RechnungsWindowModel
         }
     }
 
-    public IList<Query> GetBestellungen(DateTime date)
+    public IList<Bestellung> GetBestellungen(DateTime date)
     {
+        
+        IList<Bestellung> bestellungen = new List<Bestellung>();
         try
         {
             ISessionFactory sessionFactory = SessionFactory.CreateSessionFactory();
             using (var session = sessionFactory.OpenSession())
             {
-                var trans = session.CreateCriteria<Query>()
-                    .List<Query>();
+                var trans = session.CreateCriteria<Bestellung>()
+                    .List<Bestellung>();
 
-                return trans;
+                foreach (var entry in trans)
+                {
+                    if (entry.Today.Date.ToShortDateString() == date.Date.ToShortDateString())
+                    {
+                        bestellungen.Add(entry);
+                    }
+                }
+                return bestellungen;
             }
         }
         catch (Exception e)

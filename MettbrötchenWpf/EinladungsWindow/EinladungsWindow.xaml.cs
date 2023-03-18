@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace MettbrötchenWpf
 {
-    public partial class EinladungsWindow : Window
+    public partial class EinladungsWindow
     {
         public EinladungsWindow()
         {
