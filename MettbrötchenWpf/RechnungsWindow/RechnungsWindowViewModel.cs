@@ -25,7 +25,8 @@ namespace MettbrötchenWpf
         private int _anzahlBroetchen;
         private int _grammMett;
         private IList<Bestellung> _bestellungenList;
-        private Dictionary<int, int> _mettDictionary;
+        private int _anzahl150g;
+        private int _anzahl200g;
         public ICommand SendEmailsCommand { get; set; }
         #endregion
 
@@ -40,10 +41,15 @@ namespace MettbrötchenWpf
             get => _grammMett;
             set => Set(ref _grammMett, value);
         }
-        public Dictionary<int, int> MettDictionary
+        public int Anzahl150g
         {
-            get => _mettDictionary;
-            set => Set(ref _mettDictionary, value);
+            get => _anzahl150g;
+            set => Set(ref _anzahl150g, value);
+        }
+        public int Anzahl200g
+        {
+            get => _anzahl200g;
+            set => Set(ref _anzahl200g, value);
         }
         public IList<Bestellung> BestellungenList
         {
@@ -58,11 +64,7 @@ namespace MettbrötchenWpf
         public int Bestellungen
         {
             get => _bestellungen;
-            set
-            {
-                _bestellungen = value;
-                BestellungenAmTag = "Bestellungen am " + Rechnungsdatum.ToShortDateString() + ": " + _bestellungen;
-            }
+            set => _bestellungen = value;
         }
         public string BestellungenAmTag
         {
@@ -77,6 +79,7 @@ namespace MettbrötchenWpf
                 _rechnungsdatum= value;
                 BestellungenList = _model.GetBestellungen(value);
                 Bestellungen = _model.GetNummerBestellungen(value);
+                ReloadBestelldaten();
             }
         }
         public string PaypalEmail
@@ -116,14 +119,12 @@ namespace MettbrötchenWpf
             PaypalEmail = "[name]@gmx.de";
             BroetchenPreis = "0,00";
             MettPreis = "0,00";
-            Rechnungsdatum = DateTime.Today;
             StatusText = "Wartet...";
-            Bestellungen = _model.GetNummerBestellungen(Rechnungsdatum);
             HostName = "Ihr Mettbrötchen-Team";
-            SendEmailsCommand = new RelayCommand(o => SendEmailsClick());
-            MettDictionary = new();
+            Bestellungen = _model.GetNummerBestellungen(Rechnungsdatum);
+            Rechnungsdatum = DateTime.Today;
             
-            GetAnzahlBroetchenMett();
+            SendEmailsCommand = new RelayCommand(o => SendEmailsClick());
             
         }
         #endregion
@@ -199,7 +200,7 @@ namespace MettbrötchenWpf
 
         private List<MailMessage> PrepareEmails()
         {
-            GetAnzahlBroetchenMett();
+            ReloadBestelldaten();
             
             List<MailMessage> messages = new List<MailMessage>();
 
@@ -233,25 +234,21 @@ namespace MettbrötchenWpf
             return messages;
         }
 
-        private void GetAnzahlBroetchenMett()
+        private void ReloadBestelldaten()
         {
             AnzahlBroetchen = 0;
             GrammMett = 0;
+            Anzahl200g = 0;
+            Anzahl150g = 0;
 
             foreach (var bestellung in BestellungenList)
             {
                 if (bestellung.Today.ToShortDateString() != Rechnungsdatum.ToShortDateString()) continue;
                 AnzahlBroetchen += bestellung.Broetchen;
                 GrammMett += bestellung.Mett;
-                if (MettDictionary.ContainsKey(bestellung.Mett))
-                {
-                    MettDictionary[bestellung.Mett]++;
-                }
-                else
-                {
-                    MettDictionary.Add(bestellung.Mett, 1);
-                }
-                
+                if (bestellung.Mett == 150) Anzahl150g++;
+                if (bestellung.Mett == 200) Anzahl200g++;
+
             }
         }
         #endregion

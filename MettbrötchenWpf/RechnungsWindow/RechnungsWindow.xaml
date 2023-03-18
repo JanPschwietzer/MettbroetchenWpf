@@ -106,14 +106,14 @@
                             <DockPanel>
                                 <Label Content="150:" Margin="15 0 0 0" />
                                 <DockPanel HorizontalAlignment="Right">
-                                    <Label Content="{Binding MettDictionary[150]}" />
+                                    <Label Content="{Binding Anzahl150g}" />
                                     <Label Content=" x" />
                                 </DockPanel>
                                 </DockPanel>
                             <DockPanel>
                                 <Label Content="200:" Margin="15 0 0 5"/>
                                 <DockPanel HorizontalAlignment="Right">
-                                    <Label Content="{Binding MettDictionary[200]}" />
+                                    <Label Content="{Binding Anzahl200g}" />
                                     <Label Content=" x" />
                                 </DockPanel>
                             </DockPanel>

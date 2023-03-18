@@ -9,7 +9,7 @@ public static class ToastWindow
     {
         new ToastContentBuilder()
             .AddText("Achtung!")
-            .AddText(value ? "Du kannst nun Mettbrötchen bestellen!" : "Anmeldeschluss ist erreicht!")
+            .AddText(value ? "Du kannst jetzt Mettbrötchen bestellen!" : "Anmeldeschluss ist erreicht!")
             .AddText(value ? String.Empty : "Guten Appetit!")
             .SetToastDuration(ToastDuration.Short)
             .Show();
