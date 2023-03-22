@@ -61,3 +61,4 @@ Guten Appetit!
 - Bestellliste integrieren
 ### Anmeldefenster
 - *keine*
+### GGf. Automatische Email an den Host wenn der Anmeldeschluss erreicht wurde.
