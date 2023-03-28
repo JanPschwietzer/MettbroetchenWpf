@@ -57,8 +57,12 @@ Guten Appetit!
 ## Todo:
 ### Rechnungseditor
 - *keine*
-### Einladungsfenster
-- Bestellliste integrieren
-### Anmeldefenster
-- *keine*
-### GGf. Automatische Email an den Host wenn der Anmeldeschluss erreicht wurde.
+- sonstige Rechnungen hinzufügen
+- runden auf nächsthöhere 10 cent
+- schauen wer noch bezahlen muss + Mahnung
+- abhaken wer bezahlt
+
+### Automatische Email an den Host mit Bestellliste wenn der Anmeldeschluss erreicht wurde.
+- async
+- erweitern der comboboxen als admin
+- daten in config speichern
