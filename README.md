@@ -14,7 +14,7 @@ Zahlungsdetails für die jeweiligen Personen.
 3. Klicken Sie auf "Mitteilungen senden"
    - Die Nutzer welche die Software installiert und gestartet haben, erhalten eine Mitteilung.
    
-![/MettbroetchenWpf/einladen.png](Assets%2Fscreenshots%2Feinladen.png)
+![./MettbroetchenWpf/Assets/screenshots/einladen.png](Assets%2Fscreenshots%2Feinladen.png)
 ### Abrechnen:
 1. Starten Sie das Programm & Klicken Sie auf "Rechnungseditor"
 2. Wählen Sie das Datum der Bestellung aus
@@ -23,7 +23,7 @@ Zahlungsdetails für die jeweiligen Personen.
 4. Klicken Sie auf "Senden"
     - Die Nutzer erhalten automatisch eine Email mit den Zahlungsdetails.
 
-![/MettbroetchenWpf/rechnungseditor.png](Assets%2Fscreenshots%2Frechnungseditor.png)
+![./MettbroetchenWpf/Assets/screenshots/rechnungseditor.png](Assets%2Fscreenshots%2Frechnungseditor.png)
     
 ## Für Benutzer:
 1. Starten Sie das Programm
@@ -33,7 +33,7 @@ Zahlungsdetails für die jeweiligen Personen.
 5. Wenn der Vorgang erfolgreich war, wird Ihnen eine Mitteilung angezeigt.
 6. Sie können nun das Programm schließen.
 
-![/MettbroetchenWpf/anmeldung.png](Assets%2Fscreenshots%2Fanmeldung.png)
+![./MettbroetchenWpf/Assets/screenshots/anmeldung.png](Assets%2Fscreenshots%2Fanmeldung.png)
 
 Guten Appetit!
 
